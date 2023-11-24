@@ -86,11 +86,11 @@ app.post("/register", async (req, res) => {
 app.post("/login", passport.authenticate("local", {
     failureRedirect: "/register"
 }), (req, res) => {
-    res.render("profile");
+    res.redirect('/profile');
 })
 
 app.get("/profile", isAuthenticate, (req, res) => {
-    res.send(req.user);
+    res.render("profile");
 })
 
 
